@@ -1,0 +1,26 @@
+# 🧱 Dependency directories
+node_modules/
+.pnpm/
+
+# 🛠️ Build artifacts
+dist/
+stats/
+
+# 🧑‍💻 Dev tools
+.vscode/launch.json
+.biome/
+
+# 🧹 OS junk files
+.DS_Store
+Thumbs.db
+
+# 🔄 Runtime + cache
+npm-debug.log*
+yarn-error.log*
+*.log
+
+# 🧪 Test outputs
+*.coverage/
+coverage/
+*.test.ts.snap
+__snapshots__/

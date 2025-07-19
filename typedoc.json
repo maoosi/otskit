@@ -1,0 +1,23 @@
+{
+    "name": "otskit",
+    "entryPoints": ["src/*.ts"],
+    "plugin": ["typedoc-plugin-markdown", "./typedoc-otskit.js"],
+    "router": "module",
+    "excludeExternals": true,
+    "excludeInternal": true,
+    "flattenOutputFiles": true,
+    "hidePageTitle": true,
+    "useCodeBlocks": false,
+    "expandObjects": true,
+    "expandParameters": true,
+    "parametersFormat": "table",
+    "interfacePropertiesFormat": "table",
+    "classPropertiesFormat": "table",
+    "typeAliasPropertiesFormat": "table",
+    "enumMembersFormat": "table",
+    "propertyMembersFormat": "table",
+    "typeDeclarationFormat": "table",
+    "publicPath": "",
+    "maxTypeConversionDepth": 2,
+    "readme": "none"
+  }

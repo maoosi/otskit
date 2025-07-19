@@ -1,0 +1,47 @@
+{
+  "name": "otskit",
+  "version": "0.1.0",
+  "description": "Opinionated collection of TypeScript utility functions.",
+  "keywords": [
+    "typescript",
+    "utilities",
+    "utility",
+    "helpers",
+    "functions",
+    "toolkit",
+    "ts",
+    "utils"
+  ],
+  "license": "MIT",
+  "author": "Sylvain Simao",
+  "homepage": "https://github.com/maoosi/otskit",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maoosi/otskit.git",
+    "directory": "shared/packages/otskit"
+  },
+  "bugs": {
+    "url": "https://github.com/maoosi/otskit/issues"
+  },
+  "type": "module",
+  "files": [
+    "docs",
+    "README.md",
+    "LICENSE",
+    "package.json"
+  ],
+  "scripts": {
+    "check": "tsc --noEmit",
+    "predocs": "rm -rf ./docs",
+    "docs": "typedoc",
+    "pretest": "pnpm run check",
+    "test": "npx vitest run --reporter verbose"
+  },
+  "devDependencies": {
+    "typedoc": "^0.28.7",
+    "typedoc-plugin-markdown": "^4.7.0",
+    "typescript": "^5.8.3",
+    "vite-node": "^3.2.4",
+    "vitest": "^3.2.4"
+  }
+}
