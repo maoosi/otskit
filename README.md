@@ -13,7 +13,7 @@
 Copy a specific module into your project using [degit](https://github.com/Rich-Harris/degit):
 
 ```bash
-npx degit maoosi/otskit/src/string otskit
+npx degit maoosi/otskit/src/string.ts otskit/string.ts
 ```
 
 Or clone the full source:
