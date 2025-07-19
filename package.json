@@ -17,8 +17,7 @@
   "homepage": "https://github.com/maoosi/otskit",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/maoosi/otskit.git",
-    "directory": "shared/packages/otskit"
+    "url": "https://github.com/maoosi/otskit.git"
   },
   "bugs": {
     "url": "https://github.com/maoosi/otskit/issues"

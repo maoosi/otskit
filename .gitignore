@@ -8,6 +8,7 @@ stats/
 
 # 🧑‍💻 Dev tools
 .vscode/launch.json
+.vscode/settings.json
 .biome/
 
 # 🧹 OS junk files
