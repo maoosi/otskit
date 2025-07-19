@@ -37,6 +37,7 @@
     "test": "npx vitest run --reporter verbose"
   },
   "devDependencies": {
+    "@biomejs/biome": "2.1.2",
     "typedoc": "^0.28.7",
     "typedoc-plugin-markdown": "^4.7.0",
     "typescript": "^5.8.3",
