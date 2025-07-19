@@ -28,8 +28,8 @@ Replace the destination folder as needed.
 
 Some modules depend on others. If copying individually, include their dependencies:
 
-- `array` → depends on: `is`, `object`
-- `object` → depends on: `is`
+- `array.ts` → depends on: `is.ts`, `object.ts`
+- `object.ts` → depends on: `is.ts`
 
 Relative imports (e.g. `./is`) require keeping the folder structure intact.
 
