@@ -1,5 +1,5 @@
 import { describe, expect, test, vi } from 'vitest';
-import { debounce, padToTwoDigits, timestamp, toHoursAndMinutes } from '../src/time';
+import { createPoller, debounce, padToTwoDigits, timestamp, toHoursAndMinutes } from '../src/time';
 
 describe('time', () => {
     test('timestamp', () => {
@@ -122,6 +122,197 @@ describe('time', () => {
         debouncedFn.trigger();
         expect(mockFn).toHaveBeenCalledWith('trigger');
 
+        vi.restoreAllMocks();
+    });
+
+    test('createPoller - basic functionality', () => {
+        vi.useFakeTimers();
+
+        const mockFn = vi.fn();
+        const poller = createPoller(mockFn, { interval: 100 });
+
+        // Initially not running
+        expect(poller.isRunning()).toBe(false);
+
+        // Start polling
+        poller.start();
+        expect(poller.isRunning()).toBe(true);
+        expect(mockFn).toHaveBeenCalledTimes(1); // Called immediately
+
+        // Advance time to trigger next poll
+        vi.advanceTimersByTime(100);
+        expect(mockFn).toHaveBeenCalledTimes(2);
+
+        // Advance time again
+        vi.advanceTimersByTime(100);
+        expect(mockFn).toHaveBeenCalledTimes(3);
+
+        // Stop polling
+        poller.stop();
+        expect(poller.isRunning()).toBe(false);
+
+        // Should not call function after stopping
+        vi.advanceTimersByTime(100);
+        expect(mockFn).toHaveBeenCalledTimes(3);
+
+        vi.restoreAllMocks();
+    });
+
+    test('createPoller - multiple start/stop calls', () => {
+        vi.useFakeTimers();
+
+        const mockFn = vi.fn();
+        const poller = createPoller(mockFn, { interval: 100 });
+
+        // Multiple starts should not cause issues
+        poller.start();
+        poller.start();
+        poller.start();
+        expect(poller.isRunning()).toBe(true);
+        expect(mockFn).toHaveBeenCalledTimes(1);
+
+        // Multiple stops should not cause issues
+        poller.stop();
+        poller.stop();
+        expect(poller.isRunning()).toBe(false);
+
+        vi.restoreAllMocks();
+    });
+
+    test('createPoller - with async function', async () => {
+        vi.useFakeTimers();
+
+        const mockAsyncFn = vi.fn().mockResolvedValue('success');
+        const poller = createPoller(mockAsyncFn, { interval: 100 });
+
+        poller.start();
+        expect(mockAsyncFn).toHaveBeenCalledTimes(1);
+        expect(poller.isRunning()).toBe(true);
+
+        // Verify the function returns a promise (async handling)
+        const result = mockAsyncFn();
+        expect(result).toBeInstanceOf(Promise);
+
+        poller.stop();
+        expect(poller.isRunning()).toBe(false);
+        vi.restoreAllMocks();
+    });
+
+    test('createPoller - handles async function errors', async () => {
+        vi.useFakeTimers();
+
+        const mockAsyncFn = vi.fn().mockRejectedValue(new Error('test error'));
+        const poller = createPoller(mockAsyncFn, { interval: 100 });
+
+        poller.start();
+        expect(mockAsyncFn).toHaveBeenCalledTimes(1);
+        expect(poller.isRunning()).toBe(true);
+
+        // Verify the function returns a promise that rejects (error handling)
+        const result = mockAsyncFn();
+        expect(result).toBeInstanceOf(Promise);
+        await expect(result).rejects.toThrow('test error');
+
+        poller.stop();
+        expect(poller.isRunning()).toBe(false);
+        vi.restoreAllMocks();
+    });
+
+    test('createPoller - handles sync function errors', () => {
+        vi.useFakeTimers();
+
+        const mockFn = vi.fn().mockImplementation(() => {
+            throw new Error('sync error');
+        });
+        const poller = createPoller(mockFn, { interval: 100 });
+
+        poller.start();
+        expect(mockFn).toHaveBeenCalledTimes(1);
+
+        // Should continue polling even after error
+        vi.advanceTimersByTime(100);
+        expect(mockFn).toHaveBeenCalledTimes(2);
+
+        poller.stop();
+        vi.restoreAllMocks();
+    });
+
+    test('createPoller - pauseWhenHidden functionality', () => {
+        vi.useFakeTimers();
+
+        // Mock document and visibility API
+        const mockDocument = {
+            visibilityState: 'visible',
+            addEventListener: vi.fn(),
+            removeEventListener: vi.fn(),
+            dispatchEvent: vi.fn(),
+        };
+
+        // @ts-ignore - mocking global document
+        global.document = mockDocument;
+
+        const mockFn = vi.fn();
+        const poller = createPoller(mockFn, {
+            interval: 100,
+            pauseWhenHidden: true
+        });
+
+        poller.start();
+        expect(mockFn).toHaveBeenCalledTimes(1);
+        expect(mockDocument.addEventListener).toHaveBeenCalledWith('visibilitychange', expect.any(Function));
+
+        // Simulate tab becoming hidden before the next timer fires
+        mockDocument.visibilityState = 'hidden';
+
+        // Advance timers - the scheduleNext function should check visibility state and not schedule
+        vi.advanceTimersByTime(100);
+        expect(mockFn).toHaveBeenCalledTimes(2); // Timer was already scheduled when visible
+
+        // Advance again - should not call anymore since we're hidden  
+        vi.advanceTimersByTime(100);
+        expect(mockFn).toHaveBeenCalledTimes(2); // Should not poll when hidden
+
+        // Simulate tab becoming visible again
+        mockDocument.visibilityState = 'visible';
+
+        // Get the visibility handler and call it
+        const visibilityHandler = mockDocument.addEventListener.mock.calls[0][1];
+        visibilityHandler();
+
+        expect(mockFn).toHaveBeenCalledTimes(3); // Should resume immediately
+
+        poller.stop();
+        expect(mockDocument.removeEventListener).toHaveBeenCalledWith('visibilitychange', expect.any(Function));
+
+        vi.restoreAllMocks();
+    });
+
+    test('createPoller - without pauseWhenHidden continues when hidden', () => {
+        vi.useFakeTimers();
+
+        // Mock document and visibility API
+        const mockDocument = {
+            visibilityState: 'visible',
+            addEventListener: vi.fn(),
+            removeEventListener: vi.fn(),
+        };
+
+        // @ts-ignore - mocking global document
+        global.document = mockDocument;
+
+        const mockFn = vi.fn();
+        const poller = createPoller(mockFn, { interval: 100 });
+
+        poller.start();
+        expect(mockFn).toHaveBeenCalledTimes(1);
+        expect(mockDocument.addEventListener).not.toHaveBeenCalled();
+
+        // Simulate tab becoming hidden
+        mockDocument.visibilityState = 'hidden';
+        vi.advanceTimersByTime(100);
+        expect(mockFn).toHaveBeenCalledTimes(2); // Should continue polling when hidden
+
+        poller.stop();
         vi.restoreAllMocks();
     });
 });
