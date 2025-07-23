@@ -14,16 +14,16 @@ type TryCatchReturn<T> = T extends Promise<infer U>
  * @example
  * ```ts
  * // Basic timeout with default 5 second limit
- * const result = await timeout(fetch('/api/slow-endpoint'));
+ * const result = await withTimeout(fetch('/api/slow-endpoint'));
  *
  * // Custom timeout duration
- * const quickResult = await timeout(
+ * const quickResult = await withTimeout(
  *   someSlowOperation(),
  *   { timeoutMs: 1000 }
  * );
  *
  * // Fallback value on timeout
- * const dataWithFallback = await timeout(
+ * const dataWithFallback = await withTimeout(
  *   fetchUserData(),
  *   {
  *     timeoutMs: 3000,
@@ -32,7 +32,7 @@ type TryCatchReturn<T> = T extends Promise<infer U>
  * );
  *
  * // Fallback function (can be async)
- * const dynamicFallback = await timeout(
+ * const dynamicFallback = await withTimeout(
  *   apiCall(),
  *   {
  *     timeoutMs: 2000,
@@ -42,7 +42,7 @@ type TryCatchReturn<T> = T extends Promise<infer U>
  * );
  *
  * // Database query with timeout
- * const users = await timeout(
+ * const users = await withTimeout(
  *   db.users.findMany(),
  *   {
  *     timeoutMs: 10000,
@@ -52,7 +52,7 @@ type TryCatchReturn<T> = T extends Promise<infer U>
  * );
  * ```
  */
-export async function timeout<T>(
+export async function withTimeout<T>(
     promise: Promise<T>,
     options: {
         timeoutMs?: number;
