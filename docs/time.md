@@ -6,9 +6,40 @@
 
 ## Functions
 
-### debounce()
+### createPoller()
 
-Defined in: [time.ts:67](https://github.com/floppyos/floppyos.com/blob/51c1deec67cf0359f780339b20284f48d889ab9b/shared/packages/otskit/src/time.ts#L67)
+Creates a poller that repeatedly executes a function at specified intervals.
+Supports pausing when the document is hidden and handles both sync and async functions.
+
+#### Example
+
+```ts
+// Basic polling
+const poller = createPoller(() => {
+  console.log('Polling...');
+}, { interval: 1000 });
+
+poller.start();
+// Will log 'Polling...' every 1000ms
+
+poller.stop();
+console.log(poller.isRunning()); // false
+
+// Async polling with pause when hidden
+const apiPoller = createPoller(async () => {
+  const data = await fetch('/api/status');
+  return data.json();
+}, { 
+  interval: 5000, 
+  pauseWhenHidden: true 
+});
+
+apiPoller.start();
+```
+
+***
+
+### debounce()
 
 Ignores repeated calls and only runs the function after a pause.
 
@@ -25,8 +56,6 @@ debouncedFunc(); // Function called immediately, then 1000ms later
 ***
 
 ### padToTwoDigits()
-
-Defined in: [time.ts:51](https://github.com/floppyos/floppyos.com/blob/51c1deec67cf0359f780339b20284f48d889ab9b/shared/packages/otskit/src/time.ts#L51)
 
 Pad a number to two digits with leading zero if needed.
 
@@ -47,8 +76,6 @@ console.log(dateString); // '05/12/2023'
 
 ### timestamp()
 
-Defined in: [time.ts:9](https://github.com/floppyos/floppyos.com/blob/51c1deec67cf0359f780339b20284f48d889ab9b/shared/packages/otskit/src/time.ts#L9)
-
 Get the current timestamp in milliseconds.
 
 #### Example
@@ -60,8 +87,6 @@ timestamp(); // e.g. 1703123456789
 ***
 
 ### toHoursAndMinutes()
-
-Defined in: [time.ts:19](https://github.com/floppyos/floppyos.com/blob/51c1deec67cf0359f780339b20284f48d889ab9b/shared/packages/otskit/src/time.ts#L19)
 
 Convert minutes to hours and minutes.
 

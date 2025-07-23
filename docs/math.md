@@ -8,8 +8,6 @@
 
 ### clamp()
 
-Defined in: [math.ts:42](https://github.com/floppyos/floppyos.com/blob/51c1deec67cf0359f780339b20284f48d889ab9b/shared/packages/otskit/src/math.ts#L42)
-
 Constrains a number to be within the specified range.
 
 #### Example
@@ -32,8 +30,6 @@ const opacity = clamp(userInput, 0, 1);
 
 ### random()
 
-Defined in: [math.ts:16](https://github.com/floppyos/floppyos.com/blob/51c1deec67cf0359f780339b20284f48d889ab9b/shared/packages/otskit/src/math.ts#L16)
-
 Get a random integer between min and max (inclusive).
 
 #### Example
@@ -52,8 +48,6 @@ console.log(negativeRange); // Random number between -10 and 10 (e.g., -3)
 ***
 
 ### round()
-
-Defined in: [math.ts:72](https://github.com/floppyos/floppyos.com/blob/51c1deec67cf0359f780339b20284f48d889ab9b/shared/packages/otskit/src/math.ts#L72)
 
 Rounds a number to the specified number of decimal places.
 

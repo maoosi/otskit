@@ -8,8 +8,6 @@
 
 ### deepCopy()
 
-Defined in: [array.ts:121](https://github.com/floppyos/floppyos.com/blob/51c1deec67cf0359f780339b20284f48d889ab9b/shared/packages/otskit/src/array.ts#L121)
-
 Creates a deep copy of an array, recursively cloning any objects within it.
 
 #### Example
@@ -25,8 +23,6 @@ console.log(copied[0].name); // 'Johnny'
 ***
 
 ### diffObjectsInArrays()
-
-Defined in: [array.ts:199](https://github.com/floppyos/floppyos.com/blob/51c1deec67cf0359f780339b20284f48d889ab9b/shared/packages/otskit/src/array.ts#L199)
 
 Compares two arrays of objects and identifies what changed between them.
 
@@ -67,8 +63,6 @@ console.log(diffs); // [
 
 ### includes()
 
-Defined in: [array.ts:271](https://github.com/floppyos/floppyos.com/blob/51c1deec67cf0359f780339b20284f48d889ab9b/shared/packages/otskit/src/array.ts#L271)
-
 Checks if an array contains a specific value with proper type narrowing.
 
 #### Example
@@ -86,8 +80,6 @@ if (includes(fruits, input)) {
 ***
 
 ### orderBy()
-
-Defined in: [array.ts:95](https://github.com/floppyos/floppyos.com/blob/51c1deec67cf0359f780339b20284f48d889ab9b/shared/packages/otskit/src/array.ts#L95)
 
 Returns a sorted copy of an array using one or more properties or functions.
 
@@ -112,8 +104,6 @@ const sorted = orderBy(users, ['age', 'name'], ['desc', 'asc']);
 
 ### randomItem()
 
-Defined in: [array.ts:155](https://github.com/floppyos/floppyos.com/blob/51c1deec67cf0359f780339b20284f48d889ab9b/shared/packages/otskit/src/array.ts#L155)
-
 Returns a single random item from an array.
 
 #### Example
@@ -127,8 +117,6 @@ console.log(randomFruit); // 'banana'
 ***
 
 ### sample()
-
-Defined in: [array.ts:141](https://github.com/floppyos/floppyos.com/blob/51c1deec67cf0359f780339b20284f48d889ab9b/shared/packages/otskit/src/array.ts#L141)
 
 Selects random items from an array.
 
@@ -150,8 +138,6 @@ console.log(randomColors); // ['red', 'red', 'green']
 
 ### shuffle()
 
-Defined in: [array.ts:25](https://github.com/floppyos/floppyos.com/blob/51c1deec67cf0359f780339b20284f48d889ab9b/shared/packages/otskit/src/array.ts#L25)
-
 Creates an array of shuffled values.
 
 #### Example
@@ -166,8 +152,6 @@ console.log(shuffled); // [3, 1, 5, 2, 4]
 
 ### unique()
 
-Defined in: [array.ts:44](https://github.com/floppyos/floppyos.com/blob/51c1deec67cf0359f780339b20284f48d889ab9b/shared/packages/otskit/src/array.ts#L44)
-
 Creates a duplicate-free version of an array.
 
 #### Example
@@ -181,8 +165,6 @@ console.log(uniqueArray); // [1, 3, 4, 5]
 ***
 
 ### uniqueBy()
-
-Defined in: [array.ts:63](https://github.com/floppyos/floppyos.com/blob/51c1deec67cf0359f780339b20284f48d889ab9b/shared/packages/otskit/src/array.ts#L63)
 
 Creates a duplicate-free version of an array using a property or function to determine uniqueness.
 

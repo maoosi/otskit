@@ -10,16 +10,14 @@
 
 > `const` **SafeJSON**: \{ `parse`: \<\>() => ; `stringify`: \<\>() => ; \}
 
-Defined in: [json.ts:140](https://github.com/floppyos/floppyos.com/blob/51c1deec67cf0359f780339b20284f48d889ab9b/shared/packages/otskit/src/json.ts#L140)
-
 Drop-in replacement for JSON with safe error handling.
 
 #### Type declaration
 
-| Name | Type | Defined in |
-| ------ | ------ | ------ |
-| <a id="parse"></a> `parse()` | \<\>() => | [json.ts:140](https://github.com/floppyos/floppyos.com/blob/51c1deec67cf0359f780339b20284f48d889ab9b/shared/packages/otskit/src/json.ts#L140) |
-| <a id="stringify"></a> `stringify()` | \<\>() => | [json.ts:140](https://github.com/floppyos/floppyos.com/blob/51c1deec67cf0359f780339b20284f48d889ab9b/shared/packages/otskit/src/json.ts#L140) |
+| Name | Type |
+| ------ | ------ |
+| <a id="parse"></a> `parse()` | \<\>() => |
+| <a id="stringify"></a> `stringify()` | \<\>() => |
 
 #### Example
 
@@ -44,8 +42,6 @@ const apiData = SafeJSON.parse(text, {
 ## Functions
 
 ### parse()
-
-Defined in: [json.ts:40](https://github.com/floppyos/floppyos.com/blob/51c1deec67cf0359f780339b20284f48d889ab9b/shared/packages/otskit/src/json.ts#L40)
 
 Safely parses a JSON string without throwing errors.
 
@@ -81,8 +77,6 @@ console.log(withReviver.date instanceof Date); // true
 ***
 
 ### stringify()
-
-Defined in: [json.ts:101](https://github.com/floppyos/floppyos.com/blob/51c1deec67cf0359f780339b20284f48d889ab9b/shared/packages/otskit/src/json.ts#L101)
 
 Safely converts objects and arrays to JSON strings without throwing errors.
 

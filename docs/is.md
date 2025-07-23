@@ -8,8 +8,6 @@
 
 ### isArray()
 
-Defined in: [is.ts:248](https://github.com/floppyos/floppyos.com/blob/51c1deec67cf0359f780339b20284f48d889ab9b/shared/packages/otskit/src/is.ts#L248)
-
 Check if a value is an array.
 
 #### Example
@@ -34,8 +32,6 @@ console.log(isArray({ 0: 'a', 1: 'b', length: 2 })); // false (array-like object
 
 ### isBoolean()
 
-Defined in: [is.ts:42](https://github.com/floppyos/floppyos.com/blob/51c1deec67cf0359f780339b20284f48d889ab9b/shared/packages/otskit/src/is.ts#L42)
-
 Check if a value is a boolean.
 
 #### Example
@@ -58,8 +54,6 @@ console.log(isBoolean(1));      // false
 ***
 
 ### isDate()
-
-Defined in: [is.ts:226](https://github.com/floppyos/floppyos.com/blob/51c1deec67cf0359f780339b20284f48d889ab9b/shared/packages/otskit/src/is.ts#L226)
 
 Check if a value is a Date object.
 
@@ -84,8 +78,6 @@ console.log(isDate(new Date('invalid'))); // true (but invalid date)
 
 ### isDefined()
 
-Defined in: [is.ts:21](https://github.com/floppyos/floppyos.com/blob/51c1deec67cf0359f780339b20284f48d889ab9b/shared/packages/otskit/src/is.ts#L21)
-
 Check if a value is defined (not undefined).
 
 #### Example
@@ -107,8 +99,6 @@ console.log(defined); // [1, 3, 5]
 ***
 
 ### isError()
-
-Defined in: [is.ts:271](https://github.com/floppyos/floppyos.com/blob/51c1deec67cf0359f780339b20284f48d889ab9b/shared/packages/otskit/src/is.ts#L271)
 
 Check if a value is an Error object.
 
@@ -135,8 +125,6 @@ console.log(isError({ message: 'error' })); // false
 
 ### isFunction()
 
-Defined in: [is.ts:65](https://github.com/floppyos/floppyos.com/blob/51c1deec67cf0359f780339b20284f48d889ab9b/shared/packages/otskit/src/is.ts#L65)
-
 Check if a value is a function.
 
 #### Example
@@ -160,8 +148,6 @@ console.log(isFunction('function'));         // false
 ***
 
 ### isNull()
-
-Defined in: [is.ts:183](https://github.com/floppyos/floppyos.com/blob/51c1deec67cf0359f780339b20284f48d889ab9b/shared/packages/otskit/src/is.ts#L183)
 
 Check if a value is null.
 
@@ -188,8 +174,6 @@ console.log(isNull(0));          // false
 
 ### isNumber()
 
-Defined in: [is.ts:87](https://github.com/floppyos/floppyos.com/blob/51c1deec67cf0359f780339b20284f48d889ab9b/shared/packages/otskit/src/is.ts#L87)
-
 Check if a value is a number.
 
 #### Example
@@ -213,8 +197,6 @@ console.log(isNumber(null));    // false
 ***
 
 ### isPlainObject()
-
-Defined in: [is.ts:131](https://github.com/floppyos/floppyos.com/blob/51c1deec67cf0359f780339b20284f48d889ab9b/shared/packages/otskit/src/is.ts#L131)
 
 Check if a value is a plain object (not array, null, class instances, or other types).
 
@@ -242,8 +224,6 @@ console.log(isPlainObject(new MyClass()));   // false (class instance)
 
 ### isRegExp()
 
-Defined in: [is.ts:205](https://github.com/floppyos/floppyos.com/blob/51c1deec67cf0359f780339b20284f48d889ab9b/shared/packages/otskit/src/is.ts#L205)
-
 Check if a value is a regular expression.
 
 #### Example
@@ -268,8 +248,6 @@ console.log(isRegExp({}));               // false
 
 ### isString()
 
-Defined in: [is.ts:107](https://github.com/floppyos/floppyos.com/blob/51c1deec67cf0359f780339b20284f48d889ab9b/shared/packages/otskit/src/is.ts#L107)
-
 Check if a value is a string.
 
 #### Example
@@ -291,8 +269,6 @@ console.log(strings); // ['hello', 'world']
 ***
 
 ### isUndefined()
-
-Defined in: [is.ts:160](https://github.com/floppyos/floppyos.com/blob/51c1deec67cf0359f780339b20284f48d889ab9b/shared/packages/otskit/src/is.ts#L160)
 
 Check if a value is undefined.
 
@@ -318,8 +294,6 @@ console.log(isUndefined(0));         // false
 ***
 
 ### isUrl()
-
-Defined in: [is.ts:296](https://github.com/floppyos/floppyos.com/blob/51c1deec67cf0359f780339b20284f48d889ab9b/shared/packages/otskit/src/is.ts#L296)
 
 Checks if a string is a valid URL with http or https protocol.
 

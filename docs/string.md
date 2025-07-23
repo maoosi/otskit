@@ -8,8 +8,6 @@
 
 ### camelCase()
 
-Defined in: [string.ts:30](https://github.com/floppyos/floppyos.com/blob/51c1deec67cf0359f780339b20284f48d889ab9b/shared/packages/otskit/src/string.ts#L30)
-
 Convert a string to camelCase.
 
 #### Example
@@ -29,8 +27,6 @@ console.log(fromSpaces); // 'mySuperTitle'
 
 ### capitalize()
 
-Defined in: [string.ts:9](https://github.com/floppyos/floppyos.com/blob/51c1deec67cf0359f780339b20284f48d889ab9b/shared/packages/otskit/src/string.ts#L9)
-
 Capitalize the first letter of a string.
 
 #### Example
@@ -42,8 +38,6 @@ capitalize('hello world'); // 'Hello world'
 ***
 
 ### generateId()
-
-Defined in: [string.ts:100](https://github.com/floppyos/floppyos.com/blob/51c1deec67cf0359f780339b20284f48d889ab9b/shared/packages/otskit/src/string.ts#L100)
 
 Generates a random string with customizable alphabet and optional prefix.
 
@@ -67,8 +61,6 @@ console.log(userToken); // 'user-x7v2b9f8k1m3'
 
 ### padZeros()
 
-Defined in: [string.ts:73](https://github.com/floppyos/floppyos.com/blob/51c1deec67cf0359f780339b20284f48d889ab9b/shared/packages/otskit/src/string.ts#L73)
-
 Pad a number with leading zeros to reach a length.
 
 #### Example
@@ -88,8 +80,6 @@ console.log(noChange); // '12345' (already longer than 3 digits)
 
 ### splitFirst()
 
-Defined in: [string.ts:47](https://github.com/floppyos/floppyos.com/blob/51c1deec67cf0359f780339b20284f48d889ab9b/shared/packages/otskit/src/string.ts#L47)
-
 Split a string at the first occurrence of a separator.
 
 #### Example
@@ -103,8 +93,6 @@ console.log(value); // 'value=more'
 ***
 
 ### wrapText()
-
-Defined in: [string.ts:135](https://github.com/floppyos/floppyos.com/blob/51c1deec67cf0359f780339b20284f48d889ab9b/shared/packages/otskit/src/string.ts#L135)
 
 Break a string into lines not exceeding a max character limit.
 

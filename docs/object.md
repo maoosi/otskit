@@ -8,8 +8,6 @@
 
 ### clearNull()
 
-Defined in: [object.ts:135](https://github.com/floppyos/floppyos.com/blob/51c1deec67cf0359f780339b20284f48d889ab9b/shared/packages/otskit/src/object.ts#L135)
-
 Remove null properties from an object (mutates original).
 
 #### Example
@@ -23,8 +21,6 @@ console.log(cleaned); // { name: 'John', email: undefined } (only null removed)
 ***
 
 ### clearNullish()
-
-Defined in: [object.ts:118](https://github.com/floppyos/floppyos.com/blob/51c1deec67cf0359f780339b20284f48d889ab9b/shared/packages/otskit/src/object.ts#L118)
 
 Remove null and undefined properties from an object (mutates original).
 
@@ -40,8 +36,6 @@ console.log(cleaned); // { name: 'John', active: true }
 
 ### clearUndefined()
 
-Defined in: [object.ts:101](https://github.com/floppyos/floppyos.com/blob/51c1deec67cf0359f780339b20284f48d889ab9b/shared/packages/otskit/src/object.ts#L101)
-
 Remove undefined properties from an object (mutates original).
 
 #### Example
@@ -56,8 +50,6 @@ console.log(data === cleaned); // true (same object, mutated)
 ***
 
 ### clone()
-
-Defined in: [object.ts:155](https://github.com/floppyos/floppyos.com/blob/51c1deec67cf0359f780339b20284f48d889ab9b/shared/packages/otskit/src/object.ts#L155)
 
 Creates a deep copy of an object.
 
@@ -76,13 +68,11 @@ console.log(copy.user.name); // 'Jane'
 
 ### deepMerge()
 
-Defined in: [object.ts:189](https://github.com/floppyos/floppyos.com/blob/51c1deec67cf0359f780339b20284f48d889ab9b/shared/packages/otskit/src/object.ts#L189)
-
 Deeply merges multiple objects into a new object.
 
 - Only plain objects are merged recursively.
 - Non-plain objects (like Date, RegExp, Map, etc.) are cloned or overwritten.
-- Arrays are replaced by default (optionally configurable).
+- Arrays are replaced by default.
 - Primitives and functions are always overwritten.
 
 Type-specific behaviour:
@@ -112,8 +102,6 @@ console.log(config);
 
 ### makeReadonly()
 
-Defined in: [object.ts:233](https://github.com/floppyos/floppyos.com/blob/51c1deec67cf0359f780339b20284f48d889ab9b/shared/packages/otskit/src/object.ts#L233)
-
 Creates a deeply immutable readonly copy of an object.
 
 #### Example
@@ -129,8 +117,6 @@ readonly.name = 'Jane'; // Throws TypeError
 ***
 
 ### mapValues()
-
-Defined in: [object.ts:212](https://github.com/floppyos/floppyos.com/blob/51c1deec67cf0359f780339b20284f48d889ab9b/shared/packages/otskit/src/object.ts#L212)
 
 Transforms the values of an object using a mapping function or property key.
 
@@ -155,8 +141,6 @@ console.log(ages); // { user1: 60, user2: 50 }
 
 ### omit()
 
-Defined in: [object.ts:76](https://github.com/floppyos/floppyos.com/blob/51c1deec67cf0359f780339b20284f48d889ab9b/shared/packages/otskit/src/object.ts#L76)
-
 Creates a new object excluding the specified keys from the source object.
 
 #### Example
@@ -174,8 +158,6 @@ console.log(cleaned); // { a: 1 } (both 'b' and undefined 'c' removed)
 ***
 
 ### pick()
-
-Defined in: [object.ts:46](https://github.com/floppyos/floppyos.com/blob/51c1deec67cf0359f780339b20284f48d889ab9b/shared/packages/otskit/src/object.ts#L46)
 
 Creates a new object containing only the specified keys from the source object.
 
@@ -198,8 +180,6 @@ console.log(withoutUndefined); // { a: 1, c: 3 }
 ***
 
 ### traverse()
-
-Defined in: [object.ts:279](https://github.com/floppyos/floppyos.com/blob/51c1deec67cf0359f780339b20284f48d889ab9b/shared/packages/otskit/src/object.ts#L279)
 
 Recursively traverses an object, applying transformations to each key-value pair.
 Creates a new copy with transformations applied.

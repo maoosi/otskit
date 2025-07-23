@@ -8,8 +8,6 @@
 
 ### isTruthy()
 
-Defined in: [guards.ts:85](https://github.com/floppyos/floppyos.com/blob/51c1deec67cf0359f780339b20284f48d889ab9b/shared/packages/otskit/src/guards.ts#L85)
-
 Filter out all falsy values (false, 0, '', null, undefined, NaN).
 
 #### Example
@@ -31,8 +29,6 @@ if (isTruthy(value)) {
 ***
 
 ### notNull()
-
-Defined in: [guards.ts:41](https://github.com/floppyos/floppyos.com/blob/51c1deec67cf0359f780339b20284f48d889ab9b/shared/packages/otskit/src/guards.ts#L41)
 
 Filter out only null values specifically.
 
@@ -56,8 +52,6 @@ if (notNull(value)) {
 
 ### notNullish()
 
-Defined in: [guards.ts:19](https://github.com/floppyos/floppyos.com/blob/51c1deec67cf0359f780339b20284f48d889ab9b/shared/packages/otskit/src/guards.ts#L19)
-
 Filter out null and undefined values.
 
 #### Example
@@ -79,8 +73,6 @@ if (notNullish(value)) {
 ***
 
 ### notUndefined()
-
-Defined in: [guards.ts:63](https://github.com/floppyos/floppyos.com/blob/51c1deec67cf0359f780339b20284f48d889ab9b/shared/packages/otskit/src/guards.ts#L63)
 
 Filter out out undefined values specifically.
 

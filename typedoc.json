@@ -17,6 +17,7 @@
     "enumMembersFormat": "table",
     "propertyMembersFormat": "table",
     "typeDeclarationFormat": "table",
+    "disableSources": true,
     "publicPath": "",
     "maxTypeConversionDepth": 2,
     "readme": "none"
