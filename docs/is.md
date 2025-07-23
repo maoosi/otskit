@@ -4,6 +4,23 @@
 
 [otskit](README.md) / is
 
+## Contents
+
+* [Functions](#functions)
+  * [isArray()](#isarray)
+  * [isBoolean()](#isboolean)
+  * [isDate()](#isdate)
+  * [isDefined()](#isdefined)
+  * [isError()](#iserror)
+  * [isFunction()](#isfunction)
+  * [isNull()](#isnull)
+  * [isNumber()](#isnumber)
+  * [isPlainObject()](#isplainobject)
+  * [isRegExp()](#isregexp)
+  * [isString()](#isstring)
+  * [isUndefined()](#isundefined)
+  * [isUrl()](#isurl)
+
 ## Functions
 
 ### isArray()

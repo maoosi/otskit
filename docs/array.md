@@ -4,6 +4,19 @@
 
 [otskit](README.md) / array
 
+## Contents
+
+* [Functions](#functions)
+  * [deepCopy()](#deepcopy)
+  * [diffObjectsInArrays()](#diffobjectsinarrays)
+  * [includes()](#includes)
+  * [orderBy()](#orderby)
+  * [randomItem()](#randomitem)
+  * [sample()](#sample)
+  * [shuffle()](#shuffle)
+  * [unique()](#unique)
+  * [uniqueBy()](#uniqueby)
+
 ## Functions
 
 ### deepCopy()

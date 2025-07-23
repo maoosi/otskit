@@ -38,8 +38,11 @@
   },
   "devDependencies": {
     "@biomejs/biome": "2.1.2",
+    "remark-insert-headings": "^0.0.0",
+    "remark-toc": "^9.0.0",
     "typedoc": "^0.28.7",
     "typedoc-plugin-markdown": "^4.7.0",
+    "typedoc-plugin-remark": "^2.0.1",
     "typescript": "^5.8.3",
     "vite-node": "^3.2.4",
     "vitest": "^3.2.4"

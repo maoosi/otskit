@@ -4,11 +4,19 @@
 
 [otskit](README.md) / json
 
+## Contents
+
+* [Variables](#variables)
+  * [SafeJSON](#safejson)
+* [Functions](#functions)
+  * [parse()](#parse)
+  * [stringify()](#stringify)
+
 ## Variables
 
 ### SafeJSON
 
-> `const` **SafeJSON**: \{ `parse`: \<\>() => ; `stringify`: \<\>() => ; \}
+> `const` **SafeJSON**: { `parse`: <>() => ; `stringify`: <>() => ; }
 
 Drop-in replacement for JSON with safe error handling.
 
@@ -16,8 +24,8 @@ Drop-in replacement for JSON with safe error handling.
 
 | Name | Type |
 | ------ | ------ |
-| <a id="parse"></a> `parse()` | \<\>() => |
-| <a id="stringify"></a> `stringify()` | \<\>() => |
+| <a id="parse"></a> `parse()` | <>() => |
+| <a id="stringify"></a> `stringify()` | <>() => |
 
 #### Example
 

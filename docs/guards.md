@@ -4,6 +4,14 @@
 
 [otskit](README.md) / guards
 
+## Contents
+
+* [Functions](#functions)
+  * [isTruthy()](#istruthy)
+  * [notNull()](#notnull)
+  * [notNullish()](#notnullish)
+  * [notUndefined()](#notundefined)
+
 ## Functions
 
 ### isTruthy()

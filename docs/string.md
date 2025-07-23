@@ -4,6 +4,16 @@
 
 [otskit](README.md) / string
 
+## Contents
+
+* [Functions](#functions)
+  * [camelCase()](#camelcase)
+  * [capitalize()](#capitalize)
+  * [generateId()](#generateid)
+  * [padZeros()](#padzeros)
+  * [splitFirst()](#splitfirst)
+  * [wrapText()](#wraptext)
+
 ## Functions
 
 ### camelCase()

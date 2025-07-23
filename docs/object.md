@@ -4,6 +4,20 @@
 
 [otskit](README.md) / object
 
+## Contents
+
+* [Functions](#functions)
+  * [clearNull()](#clearnull)
+  * [clearNullish()](#clearnullish)
+  * [clearUndefined()](#clearundefined)
+  * [clone()](#clone)
+  * [deepMerge()](#deepmerge)
+  * [makeReadonly()](#makereadonly)
+  * [mapValues()](#mapvalues)
+  * [omit()](#omit)
+  * [pick()](#pick)
+  * [traverse()](#traverse)
+
 ## Functions
 
 ### clearNull()
@@ -70,19 +84,20 @@ console.log(copy.user.name); // 'Jane'
 
 Deeply merges multiple objects into a new object.
 
-- Only plain objects are merged recursively.
-- Non-plain objects (like Date, RegExp, Map, etc.) are cloned or overwritten.
-- Arrays are replaced by default.
-- Primitives and functions are always overwritten.
+* Only plain objects are merged recursively.
+* Non-plain objects (like Date, RegExp, Map, etc.) are cloned or overwritten.
+* Arrays are replaced by default.
+* Primitives and functions are always overwritten.
 
 Type-specific behaviour:
-- `undefined` / `null` — replaces target
-- Primitives (string, number, boolean) — replaces target
-- `Array` — replaced (not merged)
-- `Date` — cloned with `new Date(...)`
-- `RegExp`, `Map`, `Set` — shallow cloned
-- `Function`, `Promise`, `Symbol` — treated as-is (overwritten)
-- Class instances — not merged, replaced as-is
+
+* `undefined` / `null` — replaces target
+* Primitives (string, number, boolean) — replaces target
+* `Array` — replaced (not merged)
+* `Date` — cloned with `new Date(...)`
+* `RegExp`, `Map`, `Set` — shallow cloned
+* `Function`, `Promise`, `Symbol` — treated as-is (overwritten)
+* Class instances — not merged, replaced as-is
 
 #### Example
 

@@ -4,6 +4,13 @@
 
 [otskit](README.md) / math
 
+## Contents
+
+* [Functions](#functions)
+  * [clamp()](#clamp)
+  * [random()](#random)
+  * [round()](#round)
+
 ## Functions
 
 ### clamp()

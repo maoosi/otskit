@@ -4,6 +4,13 @@
 
 [otskit](README.md) / promise
 
+## Contents
+
+* [Functions](#functions)
+  * [sleep()](#sleep)
+  * [tryCatch()](#trycatch)
+  * [withTimeout()](#withtimeout)
+
 ## Functions
 
 ### sleep()
@@ -23,7 +30,7 @@ console.log('1 second later');
 ### tryCatch()
 
 Wraps functions, promises, or async functions to handle errors gracefully.
-Returns a tuple [result, error] instead of throwing.
+Returns a tuple \[result, error] instead of throwing.
 
 #### Example
 

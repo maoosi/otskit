@@ -1,7 +1,7 @@
 {
     "name": "otskit",
     "entryPoints": ["src/*.ts"],
-    "plugin": ["typedoc-plugin-markdown", "./typedoc-otskit.js"],
+    "plugin": ["typedoc-plugin-markdown", "typedoc-plugin-remark", "./typedoc-otskit.js"],
     "router": "module",
     "excludeExternals": true,
     "excludeInternal": true,
@@ -20,5 +20,21 @@
     "disableSources": true,
     "publicPath": "",
     "maxTypeConversionDepth": 2,
-    "readme": "none"
+    "readme": "none",
+    "remarkPlugins": [
+      {
+        "applyTo": ["Module"],
+        "plugins": [
+          [
+            "remark-insert-headings",
+            {
+              "text": "Contents",
+              "position": "start",
+              "minHeadingCount": 1
+            }
+          ],
+          ["remark-toc", { "maxDepth": 3 }]
+        ]
+      }
+    ]
   }

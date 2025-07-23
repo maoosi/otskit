@@ -4,6 +4,15 @@
 
 [otskit](README.md) / time
 
+## Contents
+
+* [Functions](#functions)
+  * [createPoller()](#createpoller)
+  * [debounce()](#debounce)
+  * [padToTwoDigits()](#padtotwodigits)
+  * [timestamp()](#timestamp)
+  * [toHoursAndMinutes()](#tohoursandminutes)
+
 ## Functions
 
 ### createPoller()
