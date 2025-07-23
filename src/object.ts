@@ -161,7 +161,7 @@ export function clone<T extends object = object>(obj: T): DeepMerge<object, T> {
  * 
  * - Only plain objects are merged recursively.
  * - Non-plain objects (like Date, RegExp, Map, etc.) are cloned or overwritten.
- * - Arrays are replaced by default (optionally configurable).
+ * - Arrays are replaced by default.
  * - Primitives and functions are always overwritten.
  * 
  * Type-specific behaviour:
