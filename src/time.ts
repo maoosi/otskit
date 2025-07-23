@@ -153,3 +153,96 @@ export function debounce<T>(
 
     return debounced;
 }
+
+/**
+ * Creates a poller that repeatedly executes a function at specified intervals.
+ * Supports pausing when the document is hidden and handles both sync and async functions.
+ *
+ * @example
+ * ```ts
+ * // Basic polling
+ * const poller = createPoller(() => {
+ *   console.log('Polling...');
+ * }, { interval: 1000 });
+ * 
+ * poller.start();
+ * // Will log 'Polling...' every 1000ms
+ * 
+ * poller.stop();
+ * console.log(poller.isRunning()); // false
+ * 
+ * // Async polling with pause when hidden
+ * const apiPoller = createPoller(async () => {
+ *   const data = await fetch('/api/status');
+ *   return data.json();
+ * }, { 
+ *   interval: 5000, 
+ *   pauseWhenHidden: true 
+ * });
+ * 
+ * apiPoller.start();
+ * ```
+ */
+export function createPoller<T>(
+    fn: () => T | Promise<T>,
+    options: {
+        interval: number;
+        pauseWhenHidden?: boolean;
+    }
+): {
+    start: () => void;
+    stop: () => void;
+    isRunning: () => boolean;
+} {
+    let timerId: ReturnType<typeof setTimeout> | null = null;
+    let running = false;
+
+    const run = () => {
+        try {
+            const result = fn();
+
+            if (result instanceof Promise) {
+                result.catch(() => { }).finally(scheduleNext);
+            } else {
+                scheduleNext();
+            }
+        } catch {
+            // sync error
+            scheduleNext();
+        }
+    };
+
+    const scheduleNext = () => {
+        if (running && (!options.pauseWhenHidden || document.visibilityState === 'visible')) {
+            timerId = setTimeout(run, options.interval);
+        }
+    };
+
+    const start = () => {
+        if (running) return;
+        running = true;
+
+        if (options.pauseWhenHidden) {
+            document.addEventListener('visibilitychange', handleVisibility);
+        }
+
+        run();
+    };
+
+    const stop = () => {
+        running = false;
+        if (timerId) clearTimeout(timerId);
+        if (options.pauseWhenHidden) {
+            document.removeEventListener('visibilitychange', handleVisibility);
+        }
+    };
+
+    const handleVisibility = () => {
+        if (!running) return;
+        if (document.visibilityState === 'visible') {
+            run(); // resume immediately
+        }
+    };
+
+    return { start, stop, isRunning: () => running };
+}
