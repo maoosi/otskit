@@ -2,7 +2,7 @@ import { describe, expect, test } from 'vitest';
 import { camelCase, capitalize, generateId, padZeros, splitFirst, wrapText } from '../src/string';
 
 describe('string', () => {
-    test('upperFirst', () => {
+    test('capitalize', () => {
         expect(capitalize('hello World')).toEqual('Hello World');
         expect(capitalize('123')).toEqual('123');
         expect(capitalize('中国')).toEqual('中国');
@@ -20,7 +20,7 @@ describe('string', () => {
         expect(camelCase('helloWorld')).toEqual('helloWorld');
     });
 
-    test('splitByFirstOccurrence', () => {
+    test('splitFirst', () => {
         expect(splitFirst('hello-world-test', '-')).toEqual(['hello', 'world-test']);
         expect(splitFirst('no-separator', '|')).toEqual(['no-separator', '']);
         expect(splitFirst('', '-')).toEqual(['', '']);
@@ -29,7 +29,7 @@ describe('string', () => {
         expect(splitFirst('multiple::colons::here', '::')).toEqual(['multiple', 'colons::here']);
     });
 
-    test('addZeroes', () => {
+    test('padZeros', () => {
         expect(padZeros(5, 3)).toBe('005');
         expect(padZeros(42, 4)).toBe('0042');
         expect(padZeros(123, 2)).toBe('123');
@@ -50,7 +50,7 @@ describe('string', () => {
         expect(ids.size).toBe(50);
     });
 
-    test('breakOnMaxChars', () => {
+    test('wrapText', () => {
         expect(wrapText('hello world', 20)).toEqual(['hello world']);
         expect(wrapText('hello world', 5)).toEqual(['hello', 'world']);
         expect(wrapText('hello world test', 11)).toEqual(['hello world', 'test']);

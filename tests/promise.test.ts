@@ -1,45 +1,45 @@
 import { describe, expect, test } from 'vitest';
-import { sleep, timeout, tryCatch } from '../src/promise';
+import { sleep, tryCatch, withTimeout } from '../src/promise';
 
 describe('promise', () => {
-    test('awaitWithTimeout - successful promise', async () => {
+    test('withTimeout - successful promise', async () => {
         const promise = Promise.resolve('success');
-        const result = await timeout(promise, { timeoutMs: 100 });
+        const result = await withTimeout(promise, { timeoutMs: 100 });
         expect(result).toBe('success');
     });
 
-    test('awaitWithTimeout - timeout with fallback value', async () => {
+    test('withTimeout - timeout with fallback value', async () => {
         const promise = new Promise((resolve) => setTimeout(() => resolve('late'), 200));
-        const result = await timeout(promise, {
+        const result = await withTimeout(promise, {
             timeoutMs: 100,
             onTimeout: 'fallback',
         });
         expect(result).toBe('fallback');
     });
 
-    test('awaitWithTimeout - timeout with fallback function', async () => {
+    test('withTimeout - timeout with fallback function', async () => {
         const promise = new Promise((resolve) => setTimeout(() => resolve('late'), 200));
-        const result = await timeout(promise, {
+        const result = await withTimeout(promise, {
             timeoutMs: 100,
             onTimeout: () => 'function-fallback',
         });
         expect(result).toBe('function-fallback');
     });
 
-    test('awaitWithTimeout - timeout with async fallback function', async () => {
+    test('withTimeout - timeout with async fallback function', async () => {
         const promise = new Promise((resolve) => setTimeout(() => resolve('late'), 200));
-        const result = await timeout(promise, {
+        const result = await withTimeout(promise, {
             timeoutMs: 100,
             onTimeout: async () => 'async-fallback',
         });
         expect(result).toBe('async-fallback');
     });
 
-    test('awaitWithTimeout - timeout effect is called', async () => {
+    test('withTimeout - timeout effect is called', async () => {
         let effectCalled = false;
         const promise = new Promise((resolve) => setTimeout(() => resolve('late'), 200));
 
-        await timeout(promise, {
+        await withTimeout(promise, {
             timeoutMs: 100,
             onTimeout: 'fallback',
             onTimeoutEffect: () => {

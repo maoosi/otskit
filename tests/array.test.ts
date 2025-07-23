@@ -11,11 +11,11 @@ describe('array', () => {
         expect(arr).toEqual([1, 2, 3, 4]); // Original unchanged
     });
 
-    test('uniq', () => {
+    test('unique', () => {
         expect(unique([2, 1, 2])).toStrictEqual([2, 1]);
     });
 
-    test('uniqBy', () => {
+    test('uniqueBy', () => {
         expect(uniqueBy([{ x: 1 }, { x: 2 }, { x: 1 }], 'x')).toStrictEqual([{ x: 1 }, { x: 2 }]);
         expect(uniqueBy([2.1, 1.2, 2.3], Math.floor)).toStrictEqual([2.1, 1.2]);
         expect(uniqueBy([{ y: undefined }, { y: null }, { y: 0 }, { y: '' }], 'y')).toStrictEqual([
@@ -71,7 +71,7 @@ describe('array', () => {
         ]);
     });
 
-    test('copy', () => {
+    test('deepCopy', () => {
         const original = [{ a: 1 }, { b: 2 }, 'string', 42];
         const copied = deepCopy(original);
 

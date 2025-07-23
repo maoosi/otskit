@@ -99,7 +99,7 @@ describe('object', () => {
         expect(clonedEdges.emptyArray).not.toBe(edgeCases.emptyArray);
     });
 
-    test('merge', () => {
+    test('deepMerge', () => {
         // Basic merging with array replacement (not concatenation)
         const obj0 = { a: ['A', 'B'] };
         const obj1 = clone(obj0);
@@ -259,13 +259,13 @@ describe('object', () => {
         });
     });
 
-    test('objectOmit', () => {
+    test('omit', () => {
         const obj = { a: ['C'], b: ['D'] };
         expect(omit(obj, ['b'])).toStrictEqual({ a: ['C'] });
         expect(obj).toStrictEqual({ a: ['C'], b: ['D'] });
     });
 
-    test('objectPick', () => {
+    test('pick', () => {
         const obj = { a: ['C'], b: ['D'] };
         expect(pick(obj, ['b'])).toStrictEqual({ b: ['D'] });
         expect(obj).toStrictEqual({ a: ['C'], b: ['D'] });
@@ -290,7 +290,7 @@ describe('object', () => {
         expect('d' in result).toBe(false);
     });
 
-    test('clearNullOrUndefined', () => {
+    test('clearNullish', () => {
         const obj = { a: 1, b: undefined, c: 'hello', d: null, e: 0, f: '' };
         const result = clearNullish(obj);
 
@@ -300,7 +300,7 @@ describe('object', () => {
         expect('d' in result).toBe(false);
     });
 
-    test('clearNullables', () => {
+    test('clearNull', () => {
         const obj = { a: 1, b: undefined, c: 'hello', d: null, e: 0, f: '' };
         const result = clearNull(obj);
 

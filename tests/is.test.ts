@@ -16,7 +16,7 @@ import {
 } from '../src/is';
 
 describe('is', () => {
-    test('isDef', () => {
+    test('isDefined', () => {
         expect(isDefined(0)).toBe(true);
         expect(isDefined('')).toBe(true);
         expect(isDefined(false)).toBe(true);
@@ -55,7 +55,7 @@ describe('is', () => {
         expect(isString(null)).toBe(false);
     });
 
-    test('isObject', () => {
+    test('isPlainObject', () => {
         expect(isPlainObject({})).toBe(true);
         expect(isPlainObject([])).toBe(false);
         expect(isPlainObject(() => true)).toBe(false);
